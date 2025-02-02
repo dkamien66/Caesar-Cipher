@@ -10,19 +10,15 @@ def main():
     brute_force_decrypt(coded_message.lower())
 
 def brute_force_decrypt(message):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    characters = "abcdefghijklmnopqrstuvwxyz,.!?'()0123456789 "
 
     with open("brute_force_decryptions.txt","w") as new_file:
-        for alpha_increment in range(1, 26):
+        for alpha_increment in range(1, 44):
             possible_decryption = ""
             for i in range(len(message)):
-                if message[i].isalpha():
-                    alphabet_index = alphabet.index(message[i])
-                    new_index = (alphabet_index + alpha_increment) % 26
-                    possible_decryption += alphabet[new_index]
-                else:
-                    possible_decryption += message[i]
-                    continue
+                alphabet_index = characters.index(message[i])
+                new_index = (alphabet_index + alpha_increment) % 44
+                possible_decryption += characters[new_index]
             new_file.write(possible_decryption + "\n")
     
 main()

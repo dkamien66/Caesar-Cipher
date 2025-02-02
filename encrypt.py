@@ -17,19 +17,15 @@ def main():
 
 
 def generate_key():
-    return random.randint(1, 25)
+    return random.randint(1, 43)
 
 def encrypt(plaintext, key):
-    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    characters = "abcdefghijklmnopqrstuvwxyz,.!?'()0123456789 "
     encoded = ""
     for i in range(len(plaintext)):
-        if plaintext[i].isalpha():
-            alphabet_index = alphabet.index(plaintext[i])
-            new_letter_index = (alphabet_index + key) % 26
-            encoded += alphabet[new_letter_index]
-        else:
-            encoded += plaintext[i]
-            continue
+        alphabet_index = characters.index(plaintext[i])
+        new_letter_index = (alphabet_index + key) % 44
+        encoded += characters[new_letter_index]
     return encoded
 
 
