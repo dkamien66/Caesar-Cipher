@@ -1,4 +1,4 @@
-encrypt.py
+encrypt.py\n
 The encrypt.py file will use a random integer key to shift all of the letters of the plaintext in the example.txt file and produce the output in the coded_message.txt.
 
 decrypt.py
